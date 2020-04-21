@@ -20,8 +20,14 @@ app.use(express.static("public"));
 // https://expressjs.com/en/starter/basic-routing.html
 app.get("/", (request, response) => {
   // console.log("request", request)
-  console.log(request.headers.referer)
-  response.sendFile(__dirname + "/views/index.html");
+  // console.log(request.headers.referer);
+  const referer = request.get('Referer');
+  console.log("referer", referer);
+  response.send(`<p>Referrer: ${referer}</p>`)
+  // response.sendFile(__dirname + "/views/index.html");
+  // response.render("index.html", { name: 'Tobi' }, function (err, html) {
+  //   // ...
+  // })
 });
 
 // send the default array of dreams to the webpage
