@@ -1,10 +1,10 @@
-// server.js
-// where your node app starts
-
-// we've started you off with Express (https://expressjs.com/)
-// but feel free to use whatever libraries or frameworks you'd like through `package.json`.
 const express = require("express");
 const app = express();
+
+// use a view engine for convenience
+// so we can display server-collected info (= the referer in that case) in the HTML markup
+// http://expressjs.com/en/guide/using-template-engines.html
+app.set('view engine', 'pug')
 
 // our default array of dreams
 const dreams = [
@@ -18,17 +18,22 @@ const dreams = [
 app.use(express.static("public"));
 
 // https://expressjs.com/en/starter/basic-routing.html
-app.get("/", (request, response) => {
-  // console.log("request", request)
-  // console.log(request.headers.referer);
-  const referer = request.get('Referer');
-  console.log("referer", referer);
-  response.send(`<p>Referrer: ${referer}</p>`)
-  // response.sendFile(__dirname + "/views/index.html");
-  // response.render("index.html", { name: 'Tobi' }, function (err, html) {
-  //   // ...
-  // })
-});
+app.get('/', function (req, res) {
+  const referer = req.get('Referer');
+  res.render('index', { message: `${referer}` });
+})
+
+// app.get("/", (request, response) => {
+//   // console.log("request", request)
+//   // console.log(request.headers.referer);
+//   const referer = request.get('Referer');
+//   console.log("referer", referer);
+//   response.send(`<p>Referrer: ${referer}</p>`)
+//   // response.sendFile(__dirname + "/views/index.html");
+//   // response.render("index.html", { name: 'Tobi' }, function (err, html) {
+//   //   // ...
+//   // })
+// });
 
 // send the default array of dreams to the webpage
 app.get("/dreams", (request, response) => {
