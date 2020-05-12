@@ -21,9 +21,10 @@ app.use(express.static("public"));
 app.get('/', function (req, res) {
   const referer = req.get('Referer');
   const { protocol } = req
-  console.log(req.Referer)
   console.log(protocol)
-  res.render('index', { message: `${referer}`, protocol: `${referer}` });
+  console.log(req.headers);
+  console.log(req.connection.encrypted)
+  res.render('index', { message: `${referer}`, protocol: `${protocol}` });
 })
 
 // app.get("/", (request, response) => {
