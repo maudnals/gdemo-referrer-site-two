@@ -20,11 +20,12 @@ app.use(express.static("public"));
 // https://expressjs.com/en/starter/basic-routing.html
 app.get('/', function (req, res) {
   const referer = req.get('Referer');
-  const { protocol } = req
-  console.log(protocol)
-  console.log(req.headers);
-  console.log(req.connection.encrypted)
-  res.render('index', { message: `${referer}`, protocol: `${protocol}` });
+  // const { protocol } = req
+  // console.log(protocol)
+  // console.log(req.headers);
+  // console.log(req.connection.encrypted)
+  // , protocol: `${protocol}` 
+  res.render('index', { message: `${referer}`});
 })
 
 // app.get("/", (request, response) => {
