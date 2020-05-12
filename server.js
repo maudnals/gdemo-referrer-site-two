@@ -36,10 +36,15 @@ app.get('/', function (req, res) {
 // });
 
 // send the default array of dreams to the webpage
-// app.get("/dreams", (request, response) => {
-//   // express helps us take JS objects and send them as JSON
-//   response.json(dreams);
-// });
+app.get("/dreams", (req, res) => {
+  const policy = req.get('Referrer-Policy');
+  console.log(req);
+  // const referer = req.get('Referer');
+  // express helps us take JS objects and send them as JSON
+  // res.json(dreams);
+  console.log(policy);
+  res.render('index', { message: `${policy}` });
+});
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
