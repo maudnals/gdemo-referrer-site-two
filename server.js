@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 
 // use a view engine for convenience
-// so we can display server-collected info (= the referrer in our case) in the HTML markup
+// so I can display server-collected info (= the referrer in our case) in the HTML markup
 // http://expressjs.com/en/guide/using-template-engines.html
 app.set('view engine', 'pug')
 
@@ -20,7 +20,10 @@ app.use(express.static("public"));
 // https://expressjs.com/en/starter/basic-routing.html
 app.get('/', function (req, res) {
   const referer = req.get('Referer');
-  res.render('index', { message: `${referer}` });
+  const { protocol } = req
+  console.log(req.Referer)
+  console.log(protocol)
+  res.render('index', { message: `${referer}`, protocol: `${referer}` });
 })
 
 // app.get("/", (request, response) => {
@@ -36,15 +39,14 @@ app.get('/', function (req, res) {
 // });
 
 // send the default array of dreams to the webpage
-app.get("/dreams", (req, res) => {
-  const policy = req.get('Referrer-Policy');
-  console.log(req);
-  // const referer = req.get('Referer');
-  // express helps us take JS objects and send them as JSON
-  // res.json(dreams);
-  console.log(policy);
-  res.render('index', { message: `${policy}` });
-});
+// app.get("/dreams", (req, res) => {
+//   console.log(req.headers);
+//   // const referer = req.get('Referer');
+//   // express helps us take JS objects and send them as JSON
+//   // res.json(dreams);
+//   // console.log(policy);
+//   res.render('index', { message: `hi` });
+// });
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
