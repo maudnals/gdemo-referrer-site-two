@@ -2,16 +2,16 @@ const express = require("express");
 const app = express();
 
 // use a view engine for convenience
-// so we can display server-collected info (= the referer in that case) in the HTML markup
+// so we can display server-collected info (= the referrer in our case) in the HTML markup
 // http://expressjs.com/en/guide/using-template-engines.html
 app.set('view engine', 'pug')
 
 // our default array of dreams
-const dreams = [
-  "Find and count some sheep",
-  "Climb a really tall mountain",
-  "Wash the dishes"
-];
+// const dreams = [
+//   "Find and count some sheep",
+//   "Climb a really tall mountain",
+//   "Wash the dishes"
+// ];
 
 // make all the files in 'public' available
 // https://expressjs.com/en/starter/static-files.html
@@ -36,10 +36,10 @@ app.get('/', function (req, res) {
 // });
 
 // send the default array of dreams to the webpage
-app.get("/dreams", (request, response) => {
-  // express helps us take JS objects and send them as JSON
-  response.json(dreams);
-});
+// app.get("/dreams", (request, response) => {
+//   // express helps us take JS objects and send them as JSON
+//   response.json(dreams);
+// });
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
