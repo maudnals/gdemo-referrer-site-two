@@ -17,6 +17,7 @@ app.set('view engine', 'pug')
 // https://expressjs.com/en/starter/static-files.html
 app.use(express.static("public"));
 
+// for v0
 // https://expressjs.com/en/starter/basic-routing.html
 app.get('/', function (req, res) {
   const referer = req.get('Referer');
@@ -27,6 +28,19 @@ app.get('/', function (req, res) {
   // , protocol: `${protocol}` 
   res.render('index', { message: `${referer}`});
 })
+
+// for v1
+app.get('/img', function (req, res) {
+  const referer = req.get('Referer');
+  // const { protocol } = req
+  // console.log(protocol)
+  // console.log(req.headers);
+  // console.log(req.connection.encrypted)
+  // , protocol: `${protocol}` 
+  // res.render('index', { message: `${referer}`});
+  res.sendFile(__dirname + "/assets/img.png");
+})
+
 
 // app.get("/", (request, response) => {
 //   // console.log("request", request)
