@@ -1,6 +1,8 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 
+app.use(cors());
 // use a view engine for convenience
 // so I can display server-collected info (= the referrer in our case) in the HTML markup
 // http://expressjs.com/en/guide/using-template-engines.html
@@ -30,15 +32,15 @@ app.get('/', function (req, res) {
 })
 
 // for v1
-app.get('/img', function (req, res) {
+// app.get('/img', function (req, res) {
+//   const referer = req.get('Referer');
+//   res.sendFile(__dirname + "/assets/img.png");
+// })
+
+app.get('/ref', function (req, res) {
   const referer = req.get('Referer');
-  // const { protocol } = req
-  // console.log(protocol)
-  // console.log(req.headers);
-  // console.log(req.connection.encrypted)
-  // , protocol: `${protocol}` 
-  // res.render('index', { message: `${referer}`});
-  res.sendFile(__dirname + "/assets/img.png");
+  console.log(referer)
+  res.json(referer);
 })
 
 
