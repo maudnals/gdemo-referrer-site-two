@@ -11,5 +11,6 @@ body {
 .referrer {
   font-family: 'Lucida Console', Monaco, monospace;
   letter-spacing: -0.3px;
-  line-height: 1.3rem;
+  line-height: 1.1rem;
+  font-size: 0.85rem;
 }
