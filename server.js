@@ -17,12 +17,17 @@ app.get('/', function (req, res) {
 
 app.get('/ref', function (req, res) {
   const referer = req.get('Referer')
-
   const origin = req.get('Origin')
-
-  console.log('referer', referer)
-  console.log('origin', origin)
+  console.log('ref: referer:', referer)
+  console.log('ref: origin:', origin)
   res.json(referer)
+})
+
+app.get('/imgs/img.png', function (req, res) {
+  const referer = req.get('Referer')
+  console.log('img: referer:', referer)
+  // res.
+  // res.json(referer)
 })
 
 // listen for requests :)
