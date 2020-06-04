@@ -11,30 +11,28 @@ app.set('view engine', 'pug')
 app.use(express.static('public'))
 
 app.get('/', function (req, res) {
-  const referer = req.get('Referer')
-  res.render('index', { message: `${referer}` })
+  const referrer = req.get('Referer')
+  res.render('index', { message: `${referrer}` })
 })
 
 app.get('/ifr', function (req, res) {
-  const referer = req.get('Referer')
-  res.render('index', { referrer: `${referer}` })
+  const referrer = req.get('Referer')
+  res.render('index', { referrer: `${referrer}` })
 })
 
 app.get('/ref', function (req, res) {
-  const referer = req.get('Referer')
-  console.log('ref: referer:', referer)
+  const referrer = req.get('Referer')
+  console.log('ref: referrer:', referrer)
   const origin = req.get('Origin')
   const meth = req.get('Method')
   console.log('ref: origin:', origin)
   console.log('ref: meth:', meth)
-  res.json(referer)
+  res.send(referrer)
 })
 
 app.get('/imgs/img.png', function (req, res) {
-  const referer = req.get('Referer')
-  console.log('img: referer:', referer)
-  // res.
-  // res.json(referer)
+  const referrer = req.get('Referer')
+  console.log('img: referrer:', referrer)
 })
 
 // listen for requests :)
