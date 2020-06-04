@@ -17,7 +17,7 @@ app.get('/', function (req, res) {
 
 app.get('/ref', function (req, res) {
   const referer = req.get('Referer');
-  console.log(referer)
+  console.log("referer", referer)
   res.json(referer);
 })
 
