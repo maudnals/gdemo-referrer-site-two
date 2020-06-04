@@ -18,6 +18,10 @@ app.get('/', function (req, res) {
 app.get('/ref', function (req, res) {
   const referer = req.get('Referer')
   console.log('ref: referer:', referer)
+  const origin = req.get('Origin')
+  const meth = req.get('Method')
+  console.log('ref: origin:', origin)
+  console.log('ref: meth:', meth)
   res.json(referer)
 })
 
