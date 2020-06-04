@@ -15,6 +15,11 @@ app.get('/', function (req, res) {
   res.render('index', { message: `${referer}` })
 })
 
+app.get('/ifr', function (req, res) {
+  const referer = req.get('Referer')
+  res.render('index', { referrer: `${referer}` })
+})
+
 app.get('/ref', function (req, res) {
   const referer = req.get('Referer')
   console.log('ref: referer:', referer)
