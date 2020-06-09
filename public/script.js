@@ -1,4 +1,5 @@
 console.log('hello world :o')
+console.log(document.referrer)
 
 var isInIframe = parent !== window
 console.log('isInIframe', isInIframe)
