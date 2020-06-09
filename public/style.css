@@ -1,20 +1,25 @@
-* {
-  box-sizing: border-box;
-}
-
 body {
   font-family: sans-serif;
   background: #f0f0f0;
+  line-height: 1.5em;
   font-size: 14px;
+}
+
+h1 {
+  font-size: 1.2em;
+}
+
+h4 {
+  margin-bottom: 1px;
 }
 
 .referrer {
   font-family: 'Lucida Console', Monaco, monospace;
   letter-spacing: -0.3px;
   line-height: 1.1rem;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
 }
 
-h4 {
-  margin-bottom: 1px;
+* {
+  box-sizing: border-box;
 }
