@@ -14,3 +14,7 @@ body {
   line-height: 1.1rem;
   font-size: 0.85rem;
 }
+
+h4 {
+  margin-bottom: 1px;
+}

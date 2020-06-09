@@ -1,8 +1,4 @@
-console.log('hello world :o')
-console.log(document.referrer)
+document.getElementById("documentReferrer").innerText = document.referrer
 
-var isInIframe = parent !== window
-console.log('isInIframe', isInIframe)
-
-// console.log(parent)
-console.log(window)
+// const isInIframe = parent !== window
+// console.log('isInIframe: ', isInIframe)
