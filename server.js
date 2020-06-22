@@ -3,8 +3,8 @@ const cors = require('cors')
 const app = express()
 
 app.use(cors())
-// use a view engine for convenience
-// so I can display server-collected info (= the referrer in our case) in the HTML markup
+
+// use a view engine for convenience, so I can display server-collected info (= the referrer in our case) in the HTML markup
 // http://expressjs.com/en/guide/using-template-engines.html
 app.set('view engine', 'pug')
 
@@ -21,21 +21,10 @@ app.get('/ifr', function (req, res) {
 })
 
 app.get('/ref', function (req, res) {
-  const referrer = req.get('Referer')
-  console.log('ref: referrer:', referrer)
-  const origin = req.get('Origin')
-  const meth = req.get('Method')
-  console.log('ref: origin:', origin)
-  console.log('ref: meth:', meth)
-  res.send(referrer)
+  const referer = req.get('Referer')
+  res.send(referer)
 })
 
-app.get('/imgs/img.png', function (req, res) {
-  const referrer = req.get('Referer')
-  console.log('img: referrer:', referrer)
-})
-
-// listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
   console.log('Your app is listening on port ' + listener.address().port)
 })
